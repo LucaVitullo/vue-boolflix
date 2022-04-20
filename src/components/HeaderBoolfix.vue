@@ -1,8 +1,8 @@
 <template>
-  <div class="hello">
-    <img class="h-50" alt="Vue logo" src="@/assets/logo.png">
+  <header>
+    <img alt="Vue logo" src="@/assets/logo.png">
 
-  </div>
+  </header>
 </template>
 
 <script>
@@ -16,7 +16,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.hello img{
-  height: 80px;
+header{
+  background-color: black;
+}
+header img{
+  height: 70px;
+  padding: 10px;
 }
 </style>
