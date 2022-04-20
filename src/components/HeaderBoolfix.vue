@@ -4,8 +4,8 @@
       <div class="col-6">
         <img alt="Vue logo" src="@/assets/logo.png">
       </div>
-      <div class="col-6 d-flex text-center justify-content-end p-4">
-        <input class="col-4 me-2" type="text" placeholder="Cerca" v-model="inputUtente"/>
+      <div class="col-6 d-flex text-center justify-content-end p-4 me-0">
+        <input class="col-4 me-2" type="text" placeholder="Cerca" @keyup.enter="$emit('search', inputUtente)" v-model="inputUtente"/>
         <button class="col-2" @click="$emit('search', inputUtente)">Cerca</button>
       </div>
 

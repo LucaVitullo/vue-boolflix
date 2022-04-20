@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderBoolfix @search="queryApi" />
-    <MainBoolfix/>
+    <MainBoolfix :films="films"/>
   </div>
 </template>
 
@@ -30,9 +30,11 @@ export default {
         query: inputUtente,
         api_key: this.apiKey,
         language: 'it-IT',
+
       }
       axios.get(this.apiUrl + 'tv', {params}).then((response)=>{
-        console.log(response)
+        console.log(response.data.results)
+        this.films = response.data.results
       })
     }
 
