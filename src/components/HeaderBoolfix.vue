@@ -1,20 +1,32 @@
 <template>
   <header>
-    <img alt="Vue logo" src="@/assets/logo.png">
+    <div class="row justify-content-between">
+      <div class="col-6">
+        <img alt="Vue logo" src="@/assets/logo.png">
+      </div>
+      <div class="col-6 d-flex text-center justify-content-end p-4">
+        <input class="col-4 me-2" type="text" placeholder="Cerca" v-model="inputUtente"/>
+        <button class="col-2" @click="$emit('search', inputUtente)">Cerca</button>
+      </div>
+
+    </div>
 
   </header>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
+  name: 'HeaderBoolfix',
+  data() {
+    return{
+    inputUtente:"",
+
+    };
+
+  },
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 header{
   background-color: black;

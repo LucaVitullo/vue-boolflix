@@ -1,37 +1,40 @@
 <template>
   <div id="app">
-    <HeaderBoolfix />
+    <HeaderBoolfix @search="queryApi" />
+    <MainBoolfix/>
   </div>
 </template>
 
 <script>
 import HeaderBoolfix from './components/HeaderBoolfix.vue';
+import MainBoolfix from './components/MainBoolfix.vue';
 import axios from 'axios';
 
 export default {
   name: 'App',
   components: {
     HeaderBoolfix,
+    MainBoolfix,
   },
   data(){
     return{
       apiUrl: 'https://api.themoviedb.org/3/search/',
-      apiKey: '6a9fd3900bf469fa4eda0085bd9879cf'
+      apiKey: '6a9fd3900bf469fa4eda0085bd9879cf',
+      inputUtente:'',
+      films:[],
     }
   },
-  mounted(){
-
-    const query = 'verde';
-    const params = {
-      query,
-      api_key:this.apiKey,
-      language: 'it-IT'
+  methods:{
+    queryApi(inputUtente){
+      const params = {
+        query: inputUtente,
+        api_key: this.apiKey,
+        language: 'it-IT',
+      }
+      axios.get(this.apiUrl + 'tv', {params}).then((response)=>{
+        console.log(response)
+      })
     }
-    axios.get(this.apiUrl + 'tv', { params }).then((response)=>{
-      console.log(response)
-    }).catch(error=>{
-      console.log(error);
-    })
 
   }
 }
