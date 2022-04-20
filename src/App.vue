@@ -32,7 +32,7 @@ export default {
         language: 'it-IT',
 
       }
-      axios.get(this.apiUrl + 'tv', {params}).then((response)=>{
+      axios.get(this.apiUrl + 'movie', {params}).then((response)=>{
         console.log(response.data.results)
         this.films = response.data.results
       })
