@@ -1,6 +1,6 @@
 <template>
-    <div class="row justify-content-center gap-3 text-light">
-        <div class="col-2 fs-4 p-1 border border-2 m-2" v-for="item in series" :key="item.id" >
+    <div class="row justify-content-center me-0 gap-3 text-light">
+        <div class="col-2 bg_lv fs-4 p-1 border border-2 m-2" v-for="item in series" :key="item.id" >
             <img class="w-100" :src="`http://image.tmdb.org/t/p/original${item.poster_path}`"
              @error="imageNotFound"
              alt="">
@@ -41,10 +41,11 @@ export default{
 </script>
 
 <style lang='scss' scoped>
-.col-2{
+.bg_lv{
     background-color: rgba($color: #9e9e9e, $alpha: 0.3);
 };
 .flag{
     width: 20px
 
 };
+</style>
