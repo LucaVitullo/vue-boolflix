@@ -44,7 +44,9 @@ export default{
 <style lang='scss' scoped>
 .bg_lv{
     background-color: rgba($color: #9e9e9e, $alpha: 0.3);
+    cursor: pointer;
 };
+
 .flag{
     width: 20px
 
