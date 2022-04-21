@@ -1,19 +1,19 @@
 <template>
 <main class="container-fluid">
-    <div class="row gap-1 flex-wrap text-light justify-content-">
-        <h1 class="bg-dark text-center">FILM</h1>
-        <div class="col fs-4 border border-2 mt-2" v-for="item in films" :key="item.id">
-            <p>TITOLO: {{item.title}}</p>
-            <p>TITOLO ORIGINALE: {{ item.original_title }}</p>
-            <p>LINGUA: {{ item.original_language }}</p>
-            <p>VOTO: {{ item.vote_average }}</p>
+    <div class="row flex-wrap text-light justify-content-evenly">
+        <h1 class="bg-dark text-center mb-0 p-2 border-light border-bottom">FILM</h1>
+        <div class="col-2 fs-4 border border-2 m-2" v-for="item in films" :key="item.id">
+            <p class="fs-6">TITOLO: {{item.title}}</p>
+            <p class="fs-6">TITOLO ORIGINALE: {{ item.original_title }}</p>
+            <img :src="showFlags (item.original_language)">
+            <p class="fs-6">VOTO: {{ item.vote_average }}</p>
         </div>
-        <h1 class="bg-dark text-center">SERIE</h1>
-        <div class="col fs-4 border border-2 mt-2" v-for="item in series" :key="item.id">
-            <p>TITOLO: {{item.name}}</p>
-            <p>TITOLO ORIGINALE: {{ item.original_name }}</p>
-            <p>LINGUA: {{ item.original_language }}</p>
-            <p>VOTO: {{ item.vote_average }}</p>
+        <h1 class="bg-dark text-center border-light border-bottom">SERIE</h1>
+        <div class="col-2 fs-4 border border-2 m-2" v-for="item in series" :key="item.id">
+            <p class="fs-6">TITOLO: {{item.name}}</p>
+            <p class="fs-6">TITOLO ORIGINALE: {{ item.original_name }}</p>
+            <img :src="showFlags (item.original_language)">
+            <p class="fs-6">VOTO: {{ item.vote_average }}</p>
         </div>
     </div>
 </main>
@@ -28,15 +28,24 @@ export default {
         films: Array,
         series:Array,
     },
+    methods:{
+        showFlags(flag){
+            if( flag === "ja"){
+                return "https://www.kidlink.org/icons/f0-jp.gif";
+            }else if ( flag === "en"){
+                return "https://www.kidlink.org/icons/f0-gb.gif";
+            }
+            return `https://www.kidlink.org/icons/f0-${flag}.gif`;
+
+        },
+
+    }
 };
 </script>
 
 <style lang='scss' scoped>
-main{
-    background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/8459cea4-79ab-4f27-9ef0-a7c92a30a9bb/f4b0e424-f578-46d1-ac77-ba8f4763d581/IT-it-20220411-popsignuptwoweeks-perspective_alpha_website_large.jpg");
-    background-size: contain;
-    opacity: 0.9;
-    background-position: center;
+.col-2{
+    background-color: rgba($color: #9e9e9e, $alpha: 0.3);
 }
 
 </style>
