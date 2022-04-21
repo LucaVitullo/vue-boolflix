@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderBoolfix @search="queryApi" />
-    <MainBoolfix :films="films"/>
+    <MainBoolfix :films="films" :series="series"/>
   </div>
 </template>
 
@@ -22,6 +22,7 @@ export default {
       apiKey: '6a9fd3900bf469fa4eda0085bd9879cf',
       inputUtente:'',
       films:[],
+      series:[],
     }
   },
   methods:{
@@ -35,6 +36,10 @@ export default {
       axios.get(this.apiUrl + 'movie', {params}).then((response)=>{
         console.log(response.data.results)
         this.films = response.data.results
+      })
+      axios.get(this.apiUrl + 'tv', {params}).then((response)=>{
+        console.log(response.data.results)
+        this.series = response.data.results
       })
     }
 

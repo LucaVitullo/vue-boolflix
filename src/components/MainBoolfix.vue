@@ -1,15 +1,20 @@
 <template>
 <main class="container-fluid">
-    <div class="row gap-2 flex-wrap text-light justify-content-center">
-        <div class="col-5 fs-3 border border-2 mt-2" v-for="item in films" :key="item.id">
+    <div class="row gap-1 flex-wrap text-light justify-content-">
+        <h1 class="bg-dark text-center">FILM</h1>
+        <div class="col fs-4 border border-2 mt-2" v-for="item in films" :key="item.id">
             <p>TITOLO: {{item.title}}</p>
             <p>TITOLO ORIGINALE: {{ item.original_title }}</p>
             <p>LINGUA: {{ item.original_language }}</p>
             <p>VOTO: {{ item.vote_average }}</p>
-
         </div>
-
-
+        <h1 class="bg-dark text-center">SERIE</h1>
+        <div class="col fs-4 border border-2 mt-2" v-for="item in series" :key="item.id">
+            <p>TITOLO: {{item.name}}</p>
+            <p>TITOLO ORIGINALE: {{ item.original_name }}</p>
+            <p>LINGUA: {{ item.original_language }}</p>
+            <p>VOTO: {{ item.vote_average }}</p>
+        </div>
     </div>
 </main>
 
@@ -21,6 +26,7 @@ export default {
     name:"MainBoolfix",
     props:{
         films: Array,
+        series:Array,
     },
 };
 </script>
