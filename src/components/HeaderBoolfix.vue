@@ -6,7 +6,7 @@
       </div>
       <div class="col-6 d-flex text-center justify-content-end p-4 ">
         <input class="col-4 me-2 rounded-2 p-1" type="text" placeholder="Cerca" @keyup.enter="$emit('search', inputUtente)" v-model="inputUtente"/>
-        <button class="col-2 rounded-2" @click="$emit('search', inputUtente)">Cerca</button>
+        <button class="col-2 rounded-2 bg-danger text-light" @click="$emit('search', inputUtente)">Cerca</button>
       </div>
 
     </div>
