@@ -7,10 +7,19 @@
             >
             <p class="fs-6">TITOLO: {{item.title}}</p>
             <p class="fs-6">TITOLO ORIGINALE: {{ item.original_title }}</p>
-            <img class="flag" :src="showFlags (item.original_language)" 
+            <img class="flag d-block" :src="showFlags (item.original_language)" 
                 @error="imageNotFound"
             >
-            <p class="fs-6">VOTO:  <font-awesome-icon icon="fa-solid fa-star" class="text-warning"/> {{ item.vote_average }}</p>
+            <div class="fs-6 d-inline-block" v-for="(n, index) in 5" :key="index">
+                <font-awesome-icon
+                 :class="n <= item.vote_average / 2 ? 'text-warning' : ''"
+                 :icon="
+                    item.vote_average / 2 == 0
+                  ? 'fa-regular fa-star'
+                  : 'fa-solid fa-star'
+                 "
+                 />
+            </div>
         </div>
     </div>
 </template>

@@ -4,13 +4,16 @@ import App from './App.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 /* import specific icons */
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar as solid } from '@fortawesome/free-solid-svg-icons'
+import { faStar as regular } from '@fortawesome/free-regular-svg-icons'
+
 
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* add icons to the library */
-library.add(faStar)
+library.add(solid,regular)
+
 
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', FontAwesomeIcon)
