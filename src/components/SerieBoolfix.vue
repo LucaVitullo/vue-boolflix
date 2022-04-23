@@ -1,6 +1,6 @@
 <template>
     <div class="row justify-content-center me-0 gap-2 text-light">
-        <div class="col-3 bg_lv fs-4 p-1 border border-2 m-2" v-for="item in series" :key="item.id">
+        <div class="col-3 bg_lv fs-4 p-1  border-2 m-2" v-for="item in series" :key="item.id">
                 <img class=" image" :src="`http://image.tmdb.org/t/p/original${item.poster_path}`"
                  @error="imageNotFound"
                  alt=""
@@ -24,7 +24,7 @@
                             "
                         />
                     </div>
-                    <p class="fs_10 m-100 w-100">DESCRIZIONE:  {{item.overview}}</p>
+                    <p class="fs_10 m-100 w-100 p-3 h-100">DESCRIZIONE:  {{item.overview}}</p>
 
                 </div>
             </div>
